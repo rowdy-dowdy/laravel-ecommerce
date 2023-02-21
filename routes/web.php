@@ -14,9 +14,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-  return view('welcome');
-});
+Route::get('/', [\App\Http\Controllers\HomeController::class , 'index'])->name('home');
+Route::get('/news', [\App\Http\Controllers\HomeController::class , 'index'])->name('news');
+Route::get('/blogs/:slug', [\App\Http\Controllers\HomeController::class , 'index'])->name('blog');
+Route::get('/articles/:slug', [\App\Http\Controllers\HomeController::class , 'index'])->name('post');
+Route::get('/shop', [\App\Http\Controllers\HomeController::class , 'index'])->name('shop');
+Route::get('/collections/:slug', [\App\Http\Controllers\HomeController::class , 'index'])->name('cleection');
+Route::get('/products/:slug', [\App\Http\Controllers\HomeController::class , 'index'])->name('product');
 
 require __DIR__.'/auth.php';
 require __DIR__.'/default.php';
